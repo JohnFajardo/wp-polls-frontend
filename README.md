@@ -1,19 +1,22 @@
-# wp-poll-frontend
+# Wordpress poll frontend
 
-## Project setup
-```
-npm install
-```
+Whis is a small plugin developed as a code challenge for a job application. It's a small Vue app that interacts with the [polls plugin](https://github.com/ThatJohn/pc-wp-polls) to add poll functionality to the Wordpress API.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+![frontend](src/assets/frontend.png)
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## How to use
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+-   If you haven't done so, download the [wordpress polls plugin](https://github.com/ThatJohn/pc-wp-polls) and install it into your Wordpress site.
+-   Download by either cloning the repository `git clone git@github.com:ThatJohn/wp-polls-frontend.git` or by downloading and unzipping the latest release.
+-   Run `npm install` in the project directory.
+-   Still in the project directory, run `npm run serve`.
+-   Navigate your browser to `http://localhost:8080`
+
+## TODO
+
+-   Add action to fetch all polls. ✅
+-   Add action to fetch single poll. ✅
+-   Add action to cast a vote. ✅
+-   Add poll management page. 🚧
+-   Update the DOM upon vote. 🚧
+-   Move hardcoded url to a `$baseurl` environment variable. 🚧
