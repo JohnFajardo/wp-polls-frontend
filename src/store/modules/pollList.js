@@ -23,12 +23,23 @@ const actions = {
 
     async postVote({commit}, args) {
         const response = await axios.post('http://localhost/wordpress/wp-json/partnercomm/polls/', args);
+
+        console.log(args);
+        commit('setVote', args);
     }
 }
 
 const mutations = {
     setPolls: (state, polls) => (state.polls = polls),
-    setPoll: (state, poll) => (state.poll = poll)
+    setPoll: (state, poll) => (state.poll = poll),
+    setVote: (state, args) => {
+
+        const option = state.poll.options.findIndex(option => {
+            return option.id = args.option_id;
+        });
+        
+        state.pollList.options[option].votes++;
+    }
 }
 
 export default {
