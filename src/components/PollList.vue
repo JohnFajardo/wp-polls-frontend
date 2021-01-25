@@ -2,7 +2,7 @@
     <div class="poll-list-container">
         <h3>Poll list</h3>
         <ul class="poll-list" v-for="poll in allPolls" v-bind:key="poll.id">
-            <li class="poll-list-item">{{ poll.name }}</li>
+            <li @click="onClick(poll.id)" class="poll-list-item">{{ poll.name }}</li>
         </ul>
     </div>
 </template>
@@ -12,7 +12,10 @@
     export default {
         name: "PollList",
         methods: {
-            ...mapActions(["fetchPolls"]),
+            ...mapActions(["fetchPolls", "fetchPoll"]),
+            onClick(id) {
+                this.fetchPoll(id);
+            },
         },
         computed: mapGetters(["allPolls"]),
         created() {
@@ -26,6 +29,7 @@
         background: #fff;
         flex: 4;
         border-radius: 15px;
+        padding: 8px 16px;
     }
 
     .poll-list {
