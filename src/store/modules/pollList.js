@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {baseurl} from './baseurl';
 
 const state = {
     polls: [],
@@ -12,17 +13,17 @@ const getters = {
 
 const actions = {
     async fetchPolls({commit}) {
-        const response = await axios.get('http://localhost/wordpress/wp-json/partnercomm/polls');
+        const response = await axios.get(`${baseurl}/wp-json/partnercomm/polls`);
         commit('setPolls', response.data);
     },
 
     async fetchPoll({commit}, id) {
-        const response = await axios.get(`http://localhost/wordpress/wp-json/partnercomm/polls/${id}`);
+        const response = await axios.get(`${baseurl}/wp-json/partnercomm/polls/${id}`);
         commit('setPoll', response.data);
     },
 
     async postVote({commit}, args) {
-        const response = await axios.post('http://localhost/wordpress/wp-json/partnercomm/polls/', args);
+        const response = await axios.post(`${baseurl}/wp-json/partnercomm/polls/`, args);
 
         console.log(args);
         commit('setVote', args);
